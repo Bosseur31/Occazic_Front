@@ -20,6 +20,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MaterialElevationDirective} from "./card-category-elevation.directive";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
+import { ServiceWorkerModule } from '@angular/service-worker';
+import {environment} from "../environments/environment";
 
 
 @NgModule({
@@ -30,22 +32,25 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     MaterialElevationDirective,
   ],
     imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatSliderModule,
-        MatStepperModule,
-        MatInputModule,
-        MatButtonModule,
-        ReactiveFormsModule,
-        MatSelectModule,
-        MatToolbarModule,
-        MatIconModule,
-        HttpClientModule,
-        FormsModule,
-        MatGridListModule,
-        MatCardModule,
-        FlexLayoutModule,
-        MatAutocompleteModule
+      ServiceWorkerModule.register('ngsw-worker.js', {
+        enabled: environment.production,
+      }),
+      BrowserModule,
+      BrowserAnimationsModule,
+      MatSliderModule,
+      MatStepperModule,
+      MatInputModule,
+      MatButtonModule,
+      ReactiveFormsModule,
+      MatSelectModule,
+      MatToolbarModule,
+      MatIconModule,
+      HttpClientModule,
+      FormsModule,
+      MatGridListModule,
+      MatCardModule,
+      FlexLayoutModule,
+      MatAutocompleteModule
     ],
   providers: [],
   bootstrap: [AppComponent]
